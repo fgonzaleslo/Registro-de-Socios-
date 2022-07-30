@@ -1,0 +1,30 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+	try
+	{
+		String id_socio =  Request.Query["id_socio"];
+
+		String connectionString = "Data Source=DESKTOP-LFH832C;Initial Catalog=ALTOS;Integrated Security=True";
+		using (SqlConnection connection = new SqlConnection(connectionString))
+		{
+			connection.Open();
+
+			String sql = "DELETE FROM socio WHERE id_socio=@id_socio";
+			using (SqlCommand command = new SqlCommand(sql, connection))
+			{
+				command.Parameters.AddWithValue("@id_socio", id_socio);
+
+				command.ExecuteNonQuery();
+
+			}
+		}
+	}
+
+	catch(Exception ex)
+	{
+	}
+
+	Response.Redirect("/Socios/Index");
+}

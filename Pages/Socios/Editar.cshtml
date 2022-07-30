@@ -1,0 +1,74 @@
+﻿@page
+@model back_socio.Pages.Socios.EditarModel
+@{
+}
+
+<br>
+<h2>Editar Socio</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+	<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+		<strong>@Model.errorMessage</strong>
+		<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+	</div>
+}
+
+<form method="POST">
+	<input type="hidden" name="id_socio" value="@Model.socioInfo.id_socio"/>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Nombre</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="nombre_socio" value="@Model.socioInfo.nombre_socio">
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Apellido</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="apellido_socio" value="@Model.socioInfo.apellido_socio">
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Correo</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="correo_socio" value="@Model.socioInfo.correo_socio">
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Celular</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="celular" value="@Model.socioInfo.celular">
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Dirección</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="direccion" value="@Model.socioInfo.direccion">
+		</div>
+	</div>
+
+	@if (Model.successMessage.Length > 0)
+	{
+	<div class="row mb-3">
+		<div class="col-sm-9">
+			<div class='alert alert-success alert-dismissible fade show' role='alert'>
+				<strong>@Model.successMessage</strong>
+				<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+			</div>
+		</div>
+	</div>	
+	}
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+		</div>
+	</div>
+</form>

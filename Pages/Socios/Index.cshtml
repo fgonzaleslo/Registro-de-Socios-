@@ -1,0 +1,39 @@
+﻿@page
+@model back_socio.Pages.Socios.IndexModel
+@{
+}
+
+<br>
+<h2>Lista de socios</h2>
+<a class='btn btn-primary btn-sm' href="/Socios/Crear_socio">Nuevo socio</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Correo</th>
+			<th>Celular</th>
+			<th>Dirección</th>
+			<th>Creación</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.listaSocios){
+			<tr>
+				<td>@item.id_socio</td>
+				<td>@item.nombre_socio</td>
+				<td>@item.apellido_socio</td>
+				<td>@item.correo_socio</td>
+				<td>@item.celular</td>
+				<td>@item.direccion</td>
+				<td>@item.creacion_socio</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Socios/Editar?id_socio=@item.id_socio">Editar</a>
+				    <a class="btn btn-primary btn-sm" href="/Socios/Eliminar?id_socio=@item.id_socio">Eliminar</a>	
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
